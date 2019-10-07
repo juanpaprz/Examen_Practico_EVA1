@@ -48,39 +48,10 @@ public class Principal {
         int select =(int) (Math.random()*5) +1 ;
         int oportunidades = 4;
         
-        switch (select){
-            case 1:
-                vacio = new char[Palabras[0].length];
-                LlenarVacio(vacio);
-                ImprimirArreglo(vacio);
-                Jugar(oportunidades, sLeer, vacio, Palabras[0]);
-                break;
-            case 2:
-                vacio = new char[Palabras[1].length];
-                LlenarVacio(vacio);
-                ImprimirArreglo(vacio);
-                Jugar(oportunidades, sLeer, vacio, Palabras[1]);
-                break;
-            case 3:
-                vacio = new char[Palabras[2].length];
-                LlenarVacio(vacio);
-                ImprimirArreglo(vacio);
-                Jugar(oportunidades, sLeer, vacio, Palabras[2]);
-                break;
-            case 4:
-                vacio = new char[Palabras[3].length];
-                LlenarVacio(vacio);
-                ImprimirArreglo(vacio);
-                Jugar(oportunidades, sLeer, vacio, Palabras[3]);
-                break;
-            case 5:
-                vacio = new char[Palabras[4].length];
-                LlenarVacio(vacio);
-                ImprimirArreglo(vacio);
-                Jugar(oportunidades, sLeer, vacio, Palabras[4]);
-                break;
-        }
-        
+        vacio = new char[Palabras[select - 1].length];
+        LlenarVacio(vacio);
+        ImprimirArreglo(vacio);
+        Jugar(oportunidades, sLeer, vacio, Palabras[select - 1]);
     }
     
     public static void ImprimirArreglo(char args[]){

@@ -1,5 +1,4 @@
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -8,7 +7,6 @@ public class Principal {
     public static void main(String[] args) {
         Scanner sLeer = new Scanner(System.in);
         int aiValores[] = new int[15];
-        ArrayList<Integer> alValores = new ArrayList();
         for (int i = 0; i < aiValores.length; i++) {
             aiValores[i] = (int) (Math.random() * 100) + 1;
         }
@@ -17,15 +15,20 @@ public class Principal {
         int iBorrar = sLeer.nextInt();
         sLeer.nextLine();
         for (int i = 0; i < aiValores.length; i++) {
-            if (iBorrar != aiValores[i]) {
-                alValores.add(aiValores[i]);
-            } 
-        }
-        for (int i = 0; i < aiValores.length; i++) {
-            try{
-                aiValores[i] = alValores.get(i);
-            } catch(Exception e) {
-                aiValores[i] = 0;
+            if (i != aiValores.length -1) {
+                if (iBorrar == aiValores[i]) {
+                    for (int j = i; j < aiValores.length; j++) {
+                        if (j != aiValores.length - 1) {
+                            aiValores[j] = aiValores[j + 1];
+                        } else {
+                            aiValores[j] = 0;
+                        }
+                    }
+                }
+            } else {
+                if (iBorrar == aiValores[i]){
+                    aiValores[i] = 0;
+                }
             }
         }
         ImprimirArreglo(aiValores);

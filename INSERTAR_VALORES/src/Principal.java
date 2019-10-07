@@ -1,5 +1,4 @@
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -13,12 +12,29 @@ public class Principal {
             System.out.println("Introduzca un numero");
             iDato = sLeer.nextInt();
             sLeer.nextLine();
-            aiValores[i] = iDato;
-            Arrays.sort(aiValores);
+            aiValores[aiValores.length - 1] = iDato;
+            for (int j = aiValores.length - 1; j >= 0; j--) {
+                if (j != 0) {
+                    if (aiValores[j] < aiValores[j - 1]) {
+                        int iTemp = aiValores[j];
+                        aiValores[j] = aiValores[j - 1];
+                        aiValores[j - 1] = iTemp;
+                    } else {
+                        break;
+                    }
+                }
+            }
             for (int j = 0; j < aiValores.length; j++) {
                 System.out.print("[" + aiValores[j] + "]");
             }
             System.out.println("");
+            for (int j = 0; j < aiValores.length; j++) {
+                if (j != aiValores.length - 1) {
+                    aiValores[j] = aiValores[j + 1];
+                } else {
+                    aiValores[j] = 0;
+                }
+            }
         }
     }
     
